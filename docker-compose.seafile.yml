@@ -11,6 +11,7 @@ services:
       - /opt/seafile-mysql/db:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
     networks:
       - seafile-net
+    restart: always
 
   memcached:
     image: memcached:1.6.18
@@ -18,6 +19,7 @@ services:
     entrypoint: memcached -m 256
     networks:
       - seafile-net
+    restart: always
           
   seafile:
     image: seafileltd/seafile-mc:latest
@@ -40,6 +42,7 @@ services:
       - memcached
     networks:
       - seafile-net
+    restart: always
 
 networks:
   seafile-net:
