@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  octoprint:
+    image: octoprint/octoprint:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./octoprint_config:/octoprint/.octoprint
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0  # Adjust this to your printer's serial port
+    restart: always
